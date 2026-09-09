@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    float real, imag, scalar;
+    float resultReal, resultImag;
+
+    cout << "Enter real part: ";
+    cin >> real;
+
+    cout << "Enter imaginary part: ";
+    cin >> imag;
+
+    cout << "Enter scalar value: ";
+    cin >> scalar;
+
+    resultReal = real / scalar;
+    resultImag = imag / scalar;
+
+    cout << "Result = " << resultReal << " + "
+         << resultImag << "i";
+
+    return 0;
+}
