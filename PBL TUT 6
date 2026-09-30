@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+// Class to represent a complex number
+class Complex
+{
+    float real, imag;   // Variables to store real and imaginary parts
+
+public:
+
+    // Constructor to initialize the complex number
+    Complex(float r = 0, float i = 0)
+    {
+        real = r;
+        imag = i;
+    }
+
+    // Overloading the unary -- operator
+    void operator--()
+    {
+        real--;   // Decrement the real part by 1
+        imag--;   // Decrement the imaginary part by 1
+    }
+
+    // Function to display the complex number
+    void display()
+    {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main()
+{
+    // Create a complex number with real = 5 and imaginary = 3
+    Complex c(5, 3);
+
+    // Display the original complex number
+    cout << "Before decrement: ";
+    c.display();
+
+    // Call the overloaded unary -- operator
+    --c;
+
+    // Display the complex number after decrement
+    cout << "After decrement: ";
+    c.display();
+
+    return 0;   // End of program
+}
