@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cstring>      // Required for strlen() and strcpy()
+using namespace std;
+
+// Define a class named String
+class String
+{
+    char *str;           // Pointer to store dynamically allocated memory
+
+public:
+
+    // Constructor
+    // It receives a string as an argument
+    String(const char *s)
+    {
+        // Dynamically allocate memory
+        // +1 is used to store the null character '\0'
+        str = new char[strlen(s) + 1];
+
+        // Copy the given string into the allocated memory
+        strcpy(str, s);
+    }
+
+    // Function to display the string
+    void display()
+    {
+        cout << "String = " << str << endl;
+    }
+
+    // Destructor
+    ~String()
+    {
+        // Release the dynamically allocated memory
+        delete[] str;
+
+        cout << "Memory released successfully." << endl;
+    }
+};
+
+// Main function
+int main()
+{
+    // Create an object of String class
+    // Constructor is called automatically
+    String s("Hello World");
+
+    // Display the string
+    s.display();
+
+    // Destructor is called automatically when
+    // the object goes out of scope
+    return 0;
+}
+
