@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class BasicInfo {
+public:
+    string name;
+    int id;
+
+    void getBasicInfo() {
+        cout << "Enter Employee Name: ";
+        cin >> name;
+        cout << "Enter Employee ID: ";
+        cin >> id;
+    }
+};
+
+class DepartmentInfo {
+public:
+    string department;
+
+    void getDepartmentInfo() {
+        cout << "Enter Department: ";
+        cin >> department;
+    }
+};
+
+class Employee : public BasicInfo, public DepartmentInfo {
+public:
+    void display() {
+        cout << "\n--- Employee ID Card ---" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main() {
+    Employee e;
+
+    e.getBasicInfo();
+    e.getDepartmentInfo();
+    e.display();
+
+    return 0;
+}
