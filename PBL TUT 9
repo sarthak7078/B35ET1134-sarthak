@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class UniversityMember {
+public:
+    virtual void displayRole() {
+        cout << "I am a University Member." << endl;
+    }
+};
+
+class Student : public UniversityMember {
+public:
+    void displayRole() override {
+        cout << "I am a Student." << endl;
+    }
+};
+
+class Faculty : public UniversityMember {
+public:
+    void displayRole() override {
+        cout << "I am a Faculty Member." << endl;
+    }
+};
+
+int main() {
+    UniversityMember* ptr;
+
+    Student s;
+    Faculty f;
+
+    ptr = &s;
+    ptr->displayRole();
+
+    ptr = &f;
+    ptr->displayRole();
+
+    return 0;
+}
