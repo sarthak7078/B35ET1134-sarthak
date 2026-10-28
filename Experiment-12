@@ -6,7 +6,7 @@ namespace Arithmetic
 {
     void show()
     {
-        int a = 10, b = 20;
+        int a = 12, b = 25;
         cout << "Arithmetic namespace: "
              << a << " + " << b << " = " << a + b << endl;
     }
@@ -17,7 +17,7 @@ namespace Geometry
 {
     void show()
     {
-        int length = 6, breadth = 4;
+        int length = 4, breadth = 7;
         cout << "Geometry namespace: rectangle area = "
              << length * breadth << endl;
     }
