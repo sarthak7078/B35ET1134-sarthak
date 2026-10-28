@@ -1,0 +1,42 @@
+#include <iostream>            // Includes input and output functions
+#include <fstream>            // Includes file handling functions
+#include <sstream>             // Includes string stream functions
+using namespace std;             // Uses the standard namespace
+int main()                     // Main function starts
+{
+    char sourceFile[100], destinationFile[100];                // Stores file names
+    string text;               // Stores the content entered by the user
+
+    cout << "Enter source file name: ";        // Asks for source file name
+    cin >> sourceFile;                         // Reads source file name
+
+    cout << "Enter destination file name: ";            // Asks for destination file name
+    cin >> destinationFile;                    // Reads destination file name
+
+    cin.ignore();                      // Removes the newline left in the input buffer
+
+    cout << "Enter source file content: ";            // Asks for source file content
+    getline(cin, text);                         // Reads the complete line of text
+
+    ofstream source(sourceFile);           // Creates and opens the source file
+    source << text;              // Writes the entered text into the source file
+    source.close();                       // Closes the source file
+
+    ifstream input(sourceFile);                // Opens the source file for reading
+    ofstream destination(destinationFile);    // Creates destination file for writing
+
+    if (!input || !destination)     // Checks whether both files opened successfully
+    {
+        cout << "Error opening file!" << endl;     // Displays an error message
+        return 1;                                // Stops the program with an error
+    }
+    char ch;                 // Declares a character variable
+    while (input.get(ch))                 // Reads source file one character at a time
+    {
+        destination.put(ch);             // Writes each character to destination file
+    }
+    cout << "File copied successfully." << endl;      // Displays success message
+    input.close();         // Closes the source file
+    destination.close();             // Closes the destination file
+    return 0; 
+} 
